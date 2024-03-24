@@ -1,30 +1,31 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import "./index.css";
+import { QueryClient, QueryClientProvider } from "react-query"; // Importa QueryClient y QueryClientProvider
+import Navbar from "./components/Navbar";
 import Home from "./Home";
 import Admin from "./Admin";
 import Client from "./Client";
-import Navbar from "./components/Navbar";
+
+// Crear un QueryClient
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="container mx-auto mt-16">
-          {" "}
-          <Routes>
-            {" "}
-            {/* Aquí envolvemos nuestras rutas con <Routes> */}
-            <Route path="/" element={<Home />} />{" "}
-            {/* Utilizamos 'element' para definir el componente a renderizar */}
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/client" element={<Client />} />
-          </Routes>
+    // Envolver la aplicación con QueryClientProvider y pasar el QueryClient
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container mx-auto mt-16">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/client" element={<Client />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </QueryClientProvider>
   );
 }
 
