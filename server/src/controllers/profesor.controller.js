@@ -1,4 +1,5 @@
 import Profesor from '../models/profesor.js';
+import mongoose from 'mongoose';
 
 // Obtener todos los profesores
 export const getProfesores = async (req, res) => {
@@ -6,20 +7,26 @@ export const getProfesores = async (req, res) => {
         const profesores = await Profesor.find();
         res.json(profesores);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error al obtener profesores:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }
 
 // Obtener un profesor por su ID
 export const getProfesorById = async (req, res) => {
     try {
+        if (!mongoose.Types.ObjectId.isValid(req.params.profesorId)) {
+            return res.status(400).json({ message: 'ID de profesor inválido' });
+        }
+
         const profesor = await Profesor.findById(req.params.profesorId);
         if (!profesor) {
-            return res.status(404).json({ message: 'Profesor no encontrado' });
+            return res.status(404).json({ message: 'El ID no corresponde a ningún profesor' });
         }
         res.json(profesor);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error al obtener profesor por ID:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }
 
@@ -31,7 +38,8 @@ export const createProfesor = async (req, res) => {
         const profesorSave = await newProfesor.save();
         res.status(201).json(profesorSave);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error al crear profesor:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }
 
@@ -45,7 +53,8 @@ export const updateProfesor = async (req, res) => {
         }
         res.json(updatedProfesor);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error al actualizar profesor:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }
 
@@ -58,6 +67,7 @@ export const deleteProfesor = async (req, res) => {
         }
         res.json({ message: 'Profesor eliminado exitosamente' });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error al eliminar profesor:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }
