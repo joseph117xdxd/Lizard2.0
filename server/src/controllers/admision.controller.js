@@ -1,19 +1,27 @@
 import Admision from '../models/admision.js';
+import mongoose from 'mongoose';
 
 export const getAdmisiones = async (req, res) =>{
     const admisiones = await Admision.find();
     res.json(admisiones);
 }
 
+// Obtener una admisión por su ID
 export const getAdmisionById = async (req, res) => {
     try {
+        // Verificar si el ID proporcionado es válido
+        if (!mongoose.Types.ObjectId.isValid(req.params.admisionId)) {
+            return res.status(400).json({ message: 'ID de admisión inválido' });
+        }
+
         const admision = await Admision.findById(req.params.admisionId);
         if (!admision) {
             return res.status(404).json({ message: 'Admision no encontrada' });
         }
         res.json(admision);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error al obtener admision por ID:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }
 
@@ -24,7 +32,8 @@ export const createAdmision = async (req, res) =>{
         const admisionSave = await newAdmision.save();
         res.status(201).json(admisionSave);
     } catch (error) {
-        res.status(500).json({message: error.message});
+        console.error('Error al crear admision:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }
 
@@ -37,7 +46,8 @@ export const updateAdmision = async (req, res) => {
         }
         res.json(updatedAdmision);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error al actualizar admision:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }
 
@@ -49,6 +59,7 @@ export const deleteAdmision = async (req, res) => {
         }
         res.json({ message: 'Admision borrada exitosamente' });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error al eliminar admision:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
 }

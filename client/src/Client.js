@@ -7,6 +7,8 @@ class Client extends Component {
     const endpointAdmisionesGet = "https://lizard-project-server.vercel.app/api/admision";
     const endpointProfesoresGet = "https://lizard-project-server.vercel.app/api/profesores";
     const endpointProfesoresGetById = "https://lizard-project-server.vercel.app/api/profesores/:profesorId";
+    const endpointOfertaGetById = "https://lizard-project-server.vercel.app/api/oferta/:ofertaId";
+    const endpointAdmisionGetById = "https://lizard-project-server.vercel.app/api/admision/:admisionId";
 
     // Respuestas de la API
     const responseDataProfesoresGet = [
@@ -95,16 +97,50 @@ class Client extends Component {
     ];
 
 
-    const responseDataOfertasGet = [
+    const responseDataOfertaGet = [
       {
-          "_id": "65f21676e1fe9db7504a6b65",
-          "nombre": "Des soft",
-          "activo": true,
-          "createdAt": "2024-03-13T21:11:18.240Z",
-          "updatedAt": "2024-03-13T21:11:18.240Z"
-      }
+        "_id": "660b64ab6ac256bb1f621c3f",
+        "nombre": "Gestión y Desarrollo de Software",
+        "activo": true,
+        "createdAt": "2024-04-02T01:51:39.622Z",
+        "updatedAt": "2024-04-02T01:51:39.622Z"
+    },
+    {
+        "_id": "660b64bf6ac256bb1f621c41",
+        "nombre": "Automatización",
+        "activo": true,
+        "createdAt": "2024-04-02T01:51:59.390Z",
+        "updatedAt": "2024-04-02T01:51:59.390Z"
+    }
   ];
 
+  const responseDataOfertaGetById = [
+    {
+      "_id": "660b64ab6ac256bb1f621c3f",
+      "nombre": "Gestión y Desarrollo de Software",
+      "activo": true,
+      "createdAt": "2024-04-02T01:51:39.622Z",
+      "updatedAt": "2024-04-02T01:51:39.622Z"
+    }
+  ];
+
+  const response400OfertaById = [
+    {
+      "message": "ID de oferta educativa inválido"
+    }
+  ];
+
+  const response404OfertaById = [
+    {
+      "message": "Oferta educativa no encontrada"
+    }
+  ];
+
+  const response500OfertaById = [
+    {
+      "message": "Error en el servidor"
+    }
+  ];
 
     const responseDataAdmisionesGet = [
       {
@@ -157,18 +193,46 @@ class Client extends Component {
         "updatedAt": "2024-03-26T19:17:32.081Z"
     }
     ];
+    
+    const responseDataAdmisionGetById = [
+      {
+        "_id": "65efbb33a93cc12a936991dc",
+        "nombre": "tecnologia ambiental",
+        "activo": false,
+        "createdAt": "2024-03-12T02:17:23.467Z",
+        "updatedAt": "2024-03-12T02:17:23.467Z"
+      }
+    ];
+  
+    const response400AdmisionById = [
+      {
+        "message": "ID de admisión inválido"
+      }
+    ];
+  
+    const response404AdmisionById = [
+      {
+        "message": "Admisión no encontrada"
+      }
+    ];
+  
+    const response500AdmisionById = [
+      {
+        "message": "Error en el servidor"
+      }
+    ];
 
     return (
-      <div className="container mx-auto mt-8">
+       <div className="container mx-auto mt-8">
         {/* Bloque de Profesores */}
         <div className="bg-white p-8 rounded-lg shadow-md">
-          <h2 className="text-3xl font-bold text-center mb-4">Obtener profesores</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Obtener Profesores</h2>
           <p className="text-center text-gray-600 mb-4">Con el siguiente endpoint puedes acceder a todos los profesores</p>
           <div className="bg-gray-200 p-4 rounded-md shadow-md mb-4">
             <p className="text-center"><a href={endpointProfesoresGet} className="text-blue-500 font-bold no-underline">{endpointProfesoresGet}</a></p>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-4">Response code: 200</h3>
+            <h3 className="text-lg font-bold mb-4">Respuesta:</h3>
             <div className="bg-gray-200 p-4 rounded-md shadow-md">
               <pre className="overflow-x-auto">{JSON.stringify(responseDataProfesoresGet, null, 2)}</pre>
             </div>
@@ -215,7 +279,6 @@ class Client extends Component {
             </div>
           </div>
         </div>
-        
 
         {/* Bloque de Ofertas */}
         <div className="bg-white p-8 rounded-lg shadow-md">
@@ -225,13 +288,54 @@ class Client extends Component {
             <p className="text-center"><a href={endpointOfertasGet} className="text-blue-500 font-bold no-underline">{endpointOfertasGet}</a></p>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-4">Respuesta:</h3>
+            <h3 className="text-lg font-bold mb-4">Response code: 200</h3>
             <div className="bg-gray-200 p-4 rounded-md shadow-md">
-              <pre className="overflow-x-auto">{JSON.stringify(responseDataOfertasGet, null, 2)}</pre>
+              <pre className="overflow-x-auto">{JSON.stringify(responseDataOfertaGet, null, 2)}</pre>
             </div>
           </div>
         </div>
-        
+        <div className="bg-white p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-center mb-4">Obtener oferta por ID</h2>
+          <p className="text-center text-gray-600 mb-4">Con el siguiente endpoint puedes acceder a una oferta especifico dado su ID</p>
+          <div className="bg-gray-200 p-4 rounded-md shadow-md mb-4">
+            <p className="text-center"><a href={endpointOfertaGetById} className="text-blue-500 font-bold no-underline">{endpointOfertaGetById}</a></p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Response code: 200</h3>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(responseDataOfertaGetById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        {/* Bloque Errores Oferta por ID */}
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 400 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID no contiene los 24 caracteres solicitados, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response400OfertaById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 404 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID contiene los 24 caracteres, pero es incorrecto o no existe, la oferta tampoco, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response404OfertaById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 500 </h3>
+        <p className="text-center text-gray-600 mb-4">Si hay errores internos en el servidor se producirá el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response500OfertaById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+
         {/* Bloque de Admisiones */}
         <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-center mb-4">Obtener Admisiones</h2>
@@ -246,6 +350,48 @@ class Client extends Component {
             </div>
           </div>
         </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-center mb-4">Obtener admision por ID</h2>
+          <p className="text-center text-gray-600 mb-4">Con el siguiente endpoint puedes acceder a una admision en especifico dado su ID</p>
+          <div className="bg-gray-200 p-4 rounded-md shadow-md mb-4">
+            <p className="text-center"><a href={endpointAdmisionGetById} className="text-blue-500 font-bold no-underline">{endpointAdmisionGetById}</a></p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Response code: 200</h3>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(responseDataAdmisionGetById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        {/* Bloque Errores Admision por ID */}
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 400 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID no contiene los 24 caracteres solicitados, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response400AdmisionById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 404 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID contiene los 24 caracteres, pero es incorrecto o no existe, la admision tampoco, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response404AdmisionById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 500 </h3>
+        <p className="text-center text-gray-600 mb-4">Si hay errores internos en el servidor se producirá el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response500AdmisionById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        
       </div>
     );
   }
