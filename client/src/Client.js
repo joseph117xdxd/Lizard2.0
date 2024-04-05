@@ -6,86 +6,228 @@ class Client extends Component {
     const endpointOfertasGet = "https://lizard-project-server.vercel.app/api/oferta";
     const endpointAdmisionesGet = "https://lizard-project-server.vercel.app/api/admision";
     const endpointProfesoresGet = "https://lizard-project-server.vercel.app/api/profesores";
+    const endpointProfesoresGetById = "https://lizard-project-server.vercel.app/api/profesores/:profesorId";
+    const endpointOfertaGetById = "https://lizard-project-server.vercel.app/api/oferta/:ofertaId";
+    const endpointAdmisionGetById = "https://lizard-project-server.vercel.app/api/admision/:admisionId";
 
     // Respuestas de la API
     const responseDataProfesoresGet = [
+    {
+        "_id": "66088620cca07a0771dcb066",
+        "nombre": "marlene",
+        "apellidos": "Fonseca",
+        "numeroEmpleado": "203",
+        "correo": "marresf@gmail.com",
+        "fechaNacimiento": "2004-12-03T06:00:00.000Z",
+        "createdAt": "2024-03-30T21:37:36.531Z",
+        "updatedAt": "2024-03-30T21:37:36.531Z"
+    },
+    {
+        "_id": "66088a614924c74acc1ea742",
+        "nombre": "Juan",
+        "apellidos": "González",
+        "numeroEmpleado": "301",
+        "correo": "juan.gonzalez@example.com",
+        "fechaNacimiento": "1990-05-15T00:00:00.000Z",
+        "createdAt": "2024-03-30T21:55:45.990Z",
+        "updatedAt": "2024-03-30T21:55:45.990Z"
+    },
+    {
+        "_id": "66088a6c4924c74acc1ea747",
+        "nombre": "María",
+        "apellidos": "López",
+        "numeroEmpleado": "302",
+        "correo": "maria.lopez@example.com",
+        "fechaNacimiento": "1985-09-20T00:00:00.000Z",
+        "createdAt": "2024-03-30T21:55:56.727Z",
+        "updatedAt": "2024-03-30T21:55:56.727Z"
+    },
+    {
+        "_id": "66088a734924c74acc1ea74c",
+        "nombre": "Pedro",
+        "apellidos": "Martínez",
+        "numeroEmpleado": "303",
+        "correo": "pedro.martinez@example.com",
+        "fechaNacimiento": "1978-03-10T00:00:00.000Z",
+        "createdAt": "2024-03-30T21:56:03.484Z",
+        "updatedAt": "2024-03-30T21:56:03.484Z"
+    },
+    {
+        "_id": "66088a794924c74acc1ea751",
+        "nombre": "Ana",
+        "apellidos": "Sánchez",
+        "numeroEmpleado": "304",
+        "correo": "ana.sanchez@example.com",
+        "fechaNacimiento": "1995-11-25T00:00:00.000Z",
+        "createdAt": "2024-03-30T21:56:09.525Z",
+        "updatedAt": "2024-03-30T21:56:09.525Z"
+    }
+    ];
+
+
+    const responseDataProfesoresGetById = [
       {
-        "_id": "65fe375052c157e7c9c39f5a",
-        "name": "Producto 1",
-        "price": 12000,
-        "category": "Nolose",
-        "imgURL": "https://store.storeimages.cdn-apple.com/",
-        "createdAt": "2024-03-23T01:58:40.264Z",
-        "updatedAt": "2024-03-23T01:58:40.264Z"
-      },
+          "_id": "66088a794924c74acc1ea751",
+          "nombre": "Ana",
+          "apellidos": "Sánchez",
+          "numeroEmpleado": "304",
+          "correo": "ana.sanchez@example.com",
+          "fechaNacimiento": "1995-11-25T00:00:00.000Z",
+          "createdAt": "2024-03-30T21:56:09.525Z",
+          "updatedAt": "2024-03-30T21:56:09.525Z"
+      }
+    ];
+
+    const response400ProfesoresById = [
       {
-        "_id": "65fe375852c157e7c9c39f5f",
-        "name": "Producto 2",
-        "price": 12000,
-        "category": "Nolose 2",
-        "imgURL": "https://store.storeimages.cdn-apple.com/",
-        "createdAt": "2024-03-23T01:58:48.234Z",
-        "updatedAt": "2024-03-23T01:58:48.234Z"
-      },
+        "message": "ID de profesor inválido"
+      }
+    ];
+
+    const response404ProfesoresById = [
       {
-        "_id": "65fe376152c157e7c9c39f64",
-        "name": "Producto 3",
-        "price": 12000,
-        "category": "Nolose 3",
-        "imgURL": "https://store.storeimages.cdn-apple.com/",
-        "createdAt": "2024-03-23T01:58:57.553Z",
-        "updatedAt": "2024-03-23T01:58:57.553Z"
+        "message": "El ID no corresponde a ningún profesor"
+      }
+    ];
+
+    const response500ProfesoresById = [
+      {
+        "message": "Error en el servidor"
       }
     ];
 
 
-    const responseDataOfertasGet = [
+    const responseDataOfertaGet = [
       {
-          "_id": "65f21676e1fe9db7504a6b65",
-          "nombre": "Des soft",
-          "activo": true,
-          "createdAt": "2024-03-13T21:11:18.240Z",
-          "updatedAt": "2024-03-13T21:11:18.240Z"
-      }
+        "_id": "660b64ab6ac256bb1f621c3f",
+        "nombre": "Gestión y Desarrollo de Software",
+        "activo": true,
+        "createdAt": "2024-04-02T01:51:39.622Z",
+        "updatedAt": "2024-04-02T01:51:39.622Z"
+    },
+    {
+        "_id": "660b64bf6ac256bb1f621c41",
+        "nombre": "Automatización",
+        "activo": true,
+        "createdAt": "2024-04-02T01:51:59.390Z",
+        "updatedAt": "2024-04-02T01:51:59.390Z"
+    }
   ];
 
+  const responseDataOfertaGetById = [
+    {
+      "_id": "660b64ab6ac256bb1f621c3f",
+      "nombre": "Gestión y Desarrollo de Software",
+      "activo": true,
+      "createdAt": "2024-04-02T01:51:39.622Z",
+      "updatedAt": "2024-04-02T01:51:39.622Z"
+    }
+  ];
+
+  const response400OfertaById = [
+    {
+      "message": "ID de oferta educativa inválido"
+    }
+  ];
+
+  const response404OfertaById = [
+    {
+      "message": "Oferta educativa no encontrada"
+    }
+  ];
+
+  const response500OfertaById = [
+    {
+      "message": "Error en el servidor"
+    }
+  ];
 
     const responseDataAdmisionesGet = [
       {
-        "_id": "65fe375052c157e7c9c39f5a",
-        "name": "Producto 1",
-        "price": 12000,
-        "category": "Nolose",
-        "imgURL": "https://store.storeimages.cdn-apple.com/",
-        "createdAt": "2024-03-23T01:58:40.264Z",
-        "updatedAt": "2024-03-23T01:58:40.264Z"
-      },
+        "_id": "65efbb33a93cc12a936991dc",
+        "nombre": "tecnologia ambiental",
+        "activo": false,
+        "createdAt": "2024-03-12T02:17:23.467Z",
+        "updatedAt": "2024-03-12T02:17:23.467Z"
+    },
+    {
+        "_id": "65efbd62a93cc12a936991df",
+        "nombre": "tecnologia ambiental",
+        "activo": false,
+        "createdAt": "2024-03-12T02:26:42.899Z",
+        "updatedAt": "2024-03-12T02:26:42.899Z"
+    },
+    {
+        "_id": "65f20c82a49afef87d954b0b",
+        "nombre": "DEs softw",
+        "activo": true,
+        "createdAt": "2024-03-13T20:28:50.747Z",
+        "updatedAt": "2024-03-13T20:28:50.747Z"
+    },
+    {
+        "_id": "65f20c88a49afef87d954b0d",
+        "nombre": "DEs softw232121",
+        "activo": true,
+        "createdAt": "2024-03-13T20:28:56.482Z",
+        "updatedAt": "2024-03-13T20:28:56.482Z"
+    },
+    {
+        "_id": "65f21177c3906b2fd03cb7ed",
+        "nombre": "prod1",
+        "activo": true,
+        "createdAt": "2024-03-13T20:49:59.480Z",
+        "updatedAt": "2024-03-13T20:49:59.480Z"
+    },
+    {
+        "_id": "66031f0be59e9b5d818cfdb6",
+        "nombre": "admitido",
+        "activo": true,
+        "createdAt": "2024-03-26T19:16:27.586Z",
+        "updatedAt": "2024-03-26T19:16:27.586Z"
+    },
+    {
+        "_id": "66031f4ce59e9b5d818cfdbb",
+        "nombre": "admitido",
+        "activo": true,
+        "createdAt": "2024-03-26T19:17:32.081Z",
+        "updatedAt": "2024-03-26T19:17:32.081Z"
+    }
+    ];
+    
+    const responseDataAdmisionGetById = [
       {
-        "_id": "65fe375852c157e7c9c39f5f",
-        "name": "Producto 2",
-        "price": 12000,
-        "category": "Nolose 2",
-        "imgURL": "https://store.storeimages.cdn-apple.com/",
-        "createdAt": "2024-03-23T01:58:48.234Z",
-        "updatedAt": "2024-03-23T01:58:48.234Z"
-      },
+        "_id": "65efbb33a93cc12a936991dc",
+        "nombre": "tecnologia ambiental",
+        "activo": false,
+        "createdAt": "2024-03-12T02:17:23.467Z",
+        "updatedAt": "2024-03-12T02:17:23.467Z"
+      }
+    ];
+  
+    const response400AdmisionById = [
       {
-        "_id": "65fe376152c157e7c9c39f64",
-        "name": "Producto 3",
-        "price": 12000,
-        "category": "Nolose 3",
-        "imgURL": "https://store.storeimages.cdn-apple.com/",
-        "createdAt": "2024-03-23T01:58:57.553Z",
-        "updatedAt": "2024-03-23T01:58:57.553Z"
+        "message": "ID de admisión inválido"
+      }
+    ];
+  
+    const response404AdmisionById = [
+      {
+        "message": "Admisión no encontrada"
+      }
+    ];
+  
+    const response500AdmisionById = [
+      {
+        "message": "Error en el servidor"
       }
     ];
 
     return (
-      <div className="container mx-auto mt-8">
+       <div className="container mx-auto mt-8">
         {/* Bloque de Profesores */}
         <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-center mb-4">Obtener Profesores</h2>
-          <p className="text-center text-gray-600 mb-4">Con el siguiente endpoint puedes acceder a todos los Profesores</p>
+          <p className="text-center text-gray-600 mb-4">Con el siguiente endpoint puedes acceder a todos los profesores</p>
           <div className="bg-gray-200 p-4 rounded-md shadow-md mb-4">
             <p className="text-center"><a href={endpointProfesoresGet} className="text-blue-500 font-bold no-underline">{endpointProfesoresGet}</a></p>
           </div>
@@ -93,6 +235,47 @@ class Client extends Component {
             <h3 className="text-lg font-bold mb-4">Respuesta:</h3>
             <div className="bg-gray-200 p-4 rounded-md shadow-md">
               <pre className="overflow-x-auto">{JSON.stringify(responseDataProfesoresGet, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-center mb-4">Obtener profesor por ID</h2>
+          <p className="text-center text-gray-600 mb-4">Con el siguiente endpoint puedes acceder a un profesor en especifico dado su ID</p>
+          <div className="bg-gray-200 p-4 rounded-md shadow-md mb-4">
+            <p className="text-center"><a href={endpointProfesoresGetById} className="text-blue-500 font-bold no-underline">{endpointProfesoresGetById}</a></p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Response code: 200</h3>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(responseDataProfesoresGetById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        {/* Bloque Errores Profesor por ID */}
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 400 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID no contiene los 24 caracteres solicitados, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response400ProfesoresById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 404 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID contiene los 24 caracteres, pero es incorrecto o no existe, el profesor tampoco, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response404ProfesoresById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 500 </h3>
+        <p className="text-center text-gray-600 mb-4">Si hay errores internos en el servidor se producirá el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response500ProfesoresById, null, 2)}</pre>
             </div>
           </div>
         </div>
@@ -105,13 +288,54 @@ class Client extends Component {
             <p className="text-center"><a href={endpointOfertasGet} className="text-blue-500 font-bold no-underline">{endpointOfertasGet}</a></p>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-4">Respuesta:</h3>
+            <h3 className="text-lg font-bold mb-4">Response code: 200</h3>
             <div className="bg-gray-200 p-4 rounded-md shadow-md">
-              <pre className="overflow-x-auto">{JSON.stringify(responseDataOfertasGet, null, 2)}</pre>
+              <pre className="overflow-x-auto">{JSON.stringify(responseDataOfertaGet, null, 2)}</pre>
             </div>
           </div>
         </div>
-        
+        <div className="bg-white p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-center mb-4">Obtener oferta por ID</h2>
+          <p className="text-center text-gray-600 mb-4">Con el siguiente endpoint puedes acceder a una oferta especifico dado su ID</p>
+          <div className="bg-gray-200 p-4 rounded-md shadow-md mb-4">
+            <p className="text-center"><a href={endpointOfertaGetById} className="text-blue-500 font-bold no-underline">{endpointOfertaGetById}</a></p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Response code: 200</h3>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(responseDataOfertaGetById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        {/* Bloque Errores Oferta por ID */}
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 400 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID no contiene los 24 caracteres solicitados, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response400OfertaById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 404 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID contiene los 24 caracteres, pero es incorrecto o no existe, la oferta tampoco, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response404OfertaById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 500 </h3>
+        <p className="text-center text-gray-600 mb-4">Si hay errores internos en el servidor se producirá el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response500OfertaById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+
         {/* Bloque de Admisiones */}
         <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold text-center mb-4">Obtener Admisiones</h2>
@@ -126,6 +350,48 @@ class Client extends Component {
             </div>
           </div>
         </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-center mb-4">Obtener admision por ID</h2>
+          <p className="text-center text-gray-600 mb-4">Con el siguiente endpoint puedes acceder a una admision en especifico dado su ID</p>
+          <div className="bg-gray-200 p-4 rounded-md shadow-md mb-4">
+            <p className="text-center"><a href={endpointAdmisionGetById} className="text-blue-500 font-bold no-underline">{endpointAdmisionGetById}</a></p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Response code: 200</h3>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(responseDataAdmisionGetById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        {/* Bloque Errores Admision por ID */}
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 400 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID no contiene los 24 caracteres solicitados, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response400AdmisionById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 404 </h3>
+        <p className="text-center text-gray-600 mb-4">Si el ID contiene los 24 caracteres, pero es incorrecto o no existe, la admision tampoco, se nos generará el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response404AdmisionById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-4">Response code: 500 </h3>
+        <p className="text-center text-gray-600 mb-4">Si hay errores internos en el servidor se producirá el siguiente error</p>
+          <div>
+            <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <pre className="overflow-x-auto">{JSON.stringify(response500AdmisionById, null, 2)}</pre>
+            </div>
+          </div>
+        </div>
+        
       </div>
     );
   }
