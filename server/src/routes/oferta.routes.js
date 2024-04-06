@@ -44,6 +44,8 @@ export default router;
 import { Router } from "express";
 import * as ofertaCtrl from '../controllers/oferta.controller.js';
 const router = Router();
+import { authJwt } from "../middlewares/index.js";
+
 
 // Rutas para ofertas educativas
 router.get('/', ofertaCtrl.getOfertas);
