@@ -47,9 +47,9 @@ const router = Router();
 
 // Rutas para ofertas educativas
 router.get('/', ofertaCtrl.getOfertas);
-router.get('/:ofertaId', ofertaCtrl.getOfertaById);
-router.post('/', ofertaCtrl.createOferta);
-router.put('/:ofertaId', ofertaCtrl.updateOferta);
-router.delete('/:ofertaId', ofertaCtrl.deleteOferta);
+router.get('/:ofertaId',[authJwt.verifyToken,authJwt.isCustomer],  ofertaCtrl.getOfertaById);
+router.post('/',[authJwt.verifyToken,authJwt.isAdmin], ofertaCtrl.createOferta);
+router.put('/:ofertaId',[authJwt.verifyToken,authJwt.isAdmin],  ofertaCtrl.updateOferta);
+router.delete('/:ofertaId', [authJwt.verifyToken,authJwt.isAdmin], ofertaCtrl.deleteOferta);
 
 export default router;
