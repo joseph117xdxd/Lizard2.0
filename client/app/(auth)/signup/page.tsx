@@ -63,6 +63,12 @@ const response500OfertaById = [
   },
 ];
 
+const response500Ofertas = [
+  {
+    message: "Error en el servidor",
+  },
+];
+
 const response400AdmisionById = [
   {
     message: "ID de admisión inválido",
@@ -172,8 +178,8 @@ export default function SignUp() {
               Request code: 500
             </div>{" "}
             <p className="text-center text-gray-600 mb-4">
-              Al querer obtener todos los profesores y no cuentas con un token
-              generado, aparece el siguiente error:
+              Al querer obtener todos los profesores y el servidor esta caido o
+              no disponible, aparece esto:
             </p>
             <div>
               <div className="bg-gray-600 p-4 rounded-md shadow-md">
@@ -253,43 +259,101 @@ export default function SignUp() {
             </div>
           </>
 
+          {/* Bloque Errores Ofertas Educativas GET */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Obtener Ofertas Educativas
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Con el siguiente endpoint puedes acceder a todas las ofertas
+              educativas
+            </p>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointOfertasGet}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointOfertasGet}
+                </a>
+              </p>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Request code: 500
+            </div>{" "}
+            <p className="text-center text-gray-600 mb-4">
+              Al querer obtener todas las ofertas educativas , podría haber
+              error en el server, y esto aparecería:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(response500Ofertas, null, 2)}
+                </pre>
+              </div>
+            </div>
+          </div>
+
           {/* Bloque Errores Oferta por ID */}
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h3 className="text-lg font-bold mb-4">Response code: 400 </h3>
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Obtener Oferta Educativa por ID
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Con el siguiente endpoint puedes acceder a una oferta educativa de
+              acuerdo a su ID
+            </p>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointOfertasGet}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointOfertasGet}
+                </a>
+              </p>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Request code: 400
+            </div>{" "}
             <p className="text-center text-gray-600 mb-4">
               Si el ID no contiene los 24 caracteres solicitados, se nos
               generará el siguiente error
             </p>
             <div>
-              <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
                 <pre className="overflow-x-auto">
                   {JSON.stringify(response400OfertaById, null, 2)}
                 </pre>
               </div>
             </div>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h3 className="text-lg font-bold mb-4">Response code: 404 </h3>
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Request code: 404
+            </div>{" "}
             <p className="text-center text-gray-600 mb-4">
               Si el ID contiene los 24 caracteres, pero es incorrecto o no
               existe, la oferta tampoco, se nos generará el siguiente error
             </p>
             <div>
-              <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
                 <pre className="overflow-x-auto">
                   {JSON.stringify(response404OfertaById, null, 2)}
                 </pre>
               </div>
             </div>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h3 className="text-lg font-bold mb-4">Response code: 500 </h3>
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Request code: 500
+            </div>{" "}
             <p className="text-center text-gray-600 mb-4">
               Si hay errores internos en el servidor se producirá el siguiente
               error
             </p>
             <div>
-              <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
                 <pre className="overflow-x-auto">
                   {JSON.stringify(response500OfertaById, null, 2)}
                 </pre>
