@@ -30,7 +30,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/signin"
+                  href="/acercade"
                   className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
                 >
                   Acerca De
@@ -38,10 +38,18 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/signup"
+                  href="/errores"
                   className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
                 >
                   Errores
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/crud"
+                  className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                >
+                  CRUD
                 </Link>
               </li>
             </ul>
