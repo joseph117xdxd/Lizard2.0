@@ -361,43 +361,100 @@ export default function SignUp() {
             </div>
           </div>
 
+          {/* Bloque Errores Ofertas Educativas GET */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Obtener Admisiones
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Con el siguiente endpoint puedes acceder a todas las admisiones
+            </p>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointAdmisionesGet}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointAdmisionesGet}
+                </a>
+              </p>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Request code: 500
+            </div>{" "}
+            <p className="text-center text-gray-600 mb-4">
+              Al querer obtener todas las admisiones, podría haber error en el
+              server, y esto aparecería:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(response500Ofertas, null, 2)}
+                </pre>
+              </div>
+            </div>
+          </div>
+
           {/* Bloque Errores Admision por ID */}
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h3 className="text-lg font-bold mb-4">Response code: 400 </h3>
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Obtener Admision por ID
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Con el siguiente endpoint puedes acceder a una admisiones de
+              acuerdo al ID que tengas.
+            </p>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointAdmisionGetById}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointAdmisionGetById}
+                </a>
+              </p>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Request code: 400
+            </div>
             <p className="text-center text-gray-600 mb-4">
               Si el ID no contiene los 24 caracteres solicitados, se nos
               generará el siguiente error
             </p>
             <div>
-              <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
                 <pre className="overflow-x-auto">
                   {JSON.stringify(response400AdmisionById, null, 2)}
                 </pre>
               </div>
             </div>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h3 className="text-lg font-bold mb-4">Response code: 404 </h3>
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Request code: 404
+            </div>
             <p className="text-center text-gray-600 mb-4">
               Si el ID contiene los 24 caracteres, pero es incorrecto o no
               existe, la admision tampoco, se nos generará el siguiente error
             </p>
             <div>
-              <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
                 <pre className="overflow-x-auto">
                   {JSON.stringify(response404AdmisionById, null, 2)}
                 </pre>
               </div>
             </div>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h3 className="text-lg font-bold mb-4">Response code: 500 </h3>
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Request code: 500
+            </div>
             <p className="text-center text-gray-600 mb-4">
               Si hay errores internos en el servidor se producirá el siguiente
               error
             </p>
             <div>
-              <div className="bg-gray-200 p-4 rounded-md shadow-md">
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
                 <pre className="overflow-x-auto">
                   {JSON.stringify(response500AdmisionById, null, 2)}
                 </pre>
