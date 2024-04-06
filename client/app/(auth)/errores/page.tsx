@@ -107,53 +107,12 @@ export default function SignUp() {
               Aqui te indicaremos los errores que puede encontrar, y el porque
               aparece. Eso ayudará a que sepas como resolverlo, y estar atento a
               los datos que estas enviando.
+              <strong className="font-semibold text-purple-400 purple:text-purple">
+                Cabe mencionar que los errores que encontrarás aqui, es cuando
+                buscar, creas, quieres eliminar un documento, etc, son los
+                errores que estarás encontrandote.
+              </strong>
             </p>
-          </div>
-
-          {/* Tabla de los status ERROR 404 */}
-          <div className="max-w-3xl mx-auto text-center pb-5 md:pb-15">
-            <h3 className="h3">HTTPS Status</h3>
-          </div>
-          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                  <th scope="col" className="px-6 py-3">
-                    Status
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Response
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Description
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-yellow-400 whitespace-nowrap yellow:text-yellow"
-                  >
-                    Respuesta
-                  </th>
-                  <td className="px-6 py-4">OK</td>
-                  <td className="px-6 py-4">
-                    Obtensión de todos los profesores
-                  </td>
-                </tr>
-                <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-green-400 whitespace-nowrap green:text-green"
-                  >
-                    200{" "}
-                  </th>
-                  <td className="px-6 py-4">OK</td>
-                  <td className="px-6 py-4">Todo funciona como es esperado</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
 
           {/* Bloque Errores Profesores GET */}
