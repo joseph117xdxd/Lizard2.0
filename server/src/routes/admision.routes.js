@@ -28,7 +28,7 @@ import { authJwt } from "../middlewares/index.js";
 
 //Establecer ruta admision mediante el metodo GET
 router.get('/',admisionCtrl.getAdmisiones);
-router.get('/:admisionId',[authJwt.verifyToken, authJwt.isAdmin], admisionCtrl.getAdmisionById);
+router.get('/:admisionId', admisionCtrl.getAdmisionById);
 router.post('/',[authJwt.verifyToken, authJwt.isAdmin], admisionCtrl.createAdmision);
 router.put('/:admisionId', [authJwt.verifyToken, authJwt.isAdmin],admisionCtrl.updateAdmision);
 router.delete('/:admisionId',[authJwt.verifyToken, authJwt.isAdmin], admisionCtrl.deleteAdmision);
