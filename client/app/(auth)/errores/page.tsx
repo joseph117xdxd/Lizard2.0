@@ -7,10 +7,6 @@ export const metadata = {
 const endpointOfertasGet = "https://lizard-server.vercel.app/api/oferta";
 const endpointAdmisionesGet = "https://lizard-server.vercel.app/api/admision";
 
-const endpointSignUpUser = "https://lizard-server.vercel.app/api/auth/signup";
-
-const endpointSignInUser = "https://lizard-server.vercel.app/api/auth/signin";
-
 const endpointProfesoresGet = "https://lizard-server.vercel.app/api/profesores";
 const endpointProfesoresGetById =
   "https://lizard-server.vercel.app/api/profesores/:profesorId";

@@ -19,7 +19,7 @@ export default function Banner() {
               >
                 Este huele a AU
               </a>{' '}
-              <span className="italic px-1.5">o</span>{' '}
+              <span className="italic px-1.5"></span>{' '}
               <a className="font-medium text-emerald-400" target="_blank" rel="noreferrer">
                 a poco no, maestra?
               </a>

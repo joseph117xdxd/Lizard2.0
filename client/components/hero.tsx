@@ -52,13 +52,13 @@ export default function Hero() {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Esta API es para uso educativo, en este sitio web te proporcionamos una guia del uso y reusltado de nuestras rutas, con la finalidad de que sea usada para un entorno controlado de desarrollo
+              Esta API es para uso educativo, en este sitio web te proporcionamos una guia del uso y resultado de nuestras rutas, con la finalidad de que sea usada para un entorno controlado de desarrollo
             </p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
                 <a
                   className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0"
-                  href="/signin"
+                  href="/acercade"
                 >
                   Documentación
                 </a>

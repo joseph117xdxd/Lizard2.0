@@ -5,24 +5,24 @@ export const metadata = {
 
 // Endpoints
 const endpointOfertasGet =
-  "https://lizard-project-server.vercel.app/api/oferta";
+  "https://lizard-server.vercel.app/api/oferta";
 const endpointAdmisionesGet =
-  "https://lizard-project-server.vercel.app/api/admision";
+  "https://lizard-server.vercel.app/api/admision";
 
 const endpointSignUpUser =
-  "https://lizard-project-server.vercel.app/api/auth/signup";
+  "https://lizard-server.vercel.app/api/auth/signup";
 
 const endpointSignInUser =
-  "https://lizard-project-server.vercel.app/api/auth/signin";
+  "https://lizard-server.vercel.app/api/auth/signin";
 
 const endpointProfesoresGet =
-  "https://lizard-project-server.vercel.app/api/profesores";
+  "https://lizard-server.vercel.app/api/profesores";
 const endpointProfesoresGetById =
-  "https://lizard-project-server.vercel.app/api/profesores/:profesorId";
+  "https://lizard-server.vercel.app/api/profesores/:profesorId";
 const endpointOfertaGetById =
-  "https://lizard-project-server.vercel.app/api/oferta/:ofertaId";
+  "https://lizard-server.vercel.app/api/oferta/:ofertaId";
 const endpointAdmisionGetById =
-  "https://lizard-project-server.vercel.app/api/admision/:admisionId";
+  "https://lizard-server.vercel.app/api/admision/:admisionId";
 
 // Respuestas de la API
 const responseDataProfesoresGet = [
@@ -211,7 +211,7 @@ export default function SignIn() {
           {/* Page header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h1 className="h1">
-              Bienvenido! ¿Quieres saber cómo usar nuestra API?
+              ¡Bienvenido! ¿Quieres saber cómo usar nuestra API?
             </h1>
             <p
               className="text-xl text-gray-400 mb-8"

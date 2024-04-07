@@ -54,7 +54,7 @@ export default function Features() {
               </svg>
               <h4 className="h4 mb-2">Manejo de roles</h4>
               <p className="text-lg text-gray-400 text-center">
-                Lizard 2.0 cuenta con la implementavion de roles de usuario con
+                Lizard 2.0 cuenta con la implementación de roles de usuario con
                 permisos especificos
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function Features() {
               </svg>
               <h4 className="h4 mb-2">Despliegue de la API</h4>
               <p className="text-lg text-gray-400 text-center">
-                La API se encuentra alojada en un servidio en la nube gratuito
+                La API se encuentra alojada en un servidor en la nube gratuito
               </p>
             </div>
 
@@ -225,7 +225,7 @@ export default function Features() {
                   />
                 </g>
               </svg>
-              <h4 className="h4 mb-2">Auntenticación JWT</h4>
+              <h4 className="h4 mb-2">Autenticación JWT</h4>
               <p className="text-lg text-gray-400 text-center">
                 Se implemento la autenticación utitlizando JWT (JSON Web Token), dando una verificación adecuada de acuerdo a las credenciales de usuario y la generación de tokens.
               </p>
