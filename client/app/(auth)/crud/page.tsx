@@ -7,17 +7,16 @@ export const metadata = {
 const endpointOfertasGet = "https://lizard-server.vercel.app/api/oferta";
 const endpointAdmisionesGet = "https://lizard-server.vercel.app/api/admision";
 
-const endpointSignUpUser = "https://lizard-server.vercel.app/api/auth/signup";
+const endpointGetProfesores = "https://lizard-server.vercel.app/api/profesores";
+const endpointAdmisionCrear = "https://lizard-server.vercel.app/api/admision";
+const endpointCrearOferta = "https://lizard-server.vercel.app/api/oferta";
 
-const endpointSignInUser = "https://lizard-server.vercel.app/api/auth/signin";
-
-const endpointProfesoresGet = "https://lizard-server.vercel.app/api/profesores";
-const endpointProfesoresGetById =
+const endpointProfesorObtener =
   "https://lizard-server.vercel.app/api/profesores/:profesorId";
-const endpointOfertaGetById =
-  "https://lizard-server.vercel.app/api/oferta/:ofertaId";
-const endpointAdmisionGetById =
+const endpointObtenerAdmisionPorId =
   "https://lizard-server.vercel.app/api/admision/:admisionId";
+const endpointOfertaPorId =
+  "https://lizard-server.vercel.app/api/oferta/:ofertaId";
 
 // Respuestas de la API
 
@@ -75,7 +74,7 @@ const response200ModificacionProfe = [
   },
 ];
 
-const headersEliminacionProfe = [
+const headersEliminacion = [
   {
     "x-access-token": "your_access_token_here",
     "Content-Type": "application/json",
@@ -87,6 +86,89 @@ const responseMensajeEliminacionProfe = [
     message: "Profesor eliminado exitosamente",
   },
 ];
+
+const cuerpoCrearAdmision = [
+  {
+    "nombre":"ENE-FEB 2022",
+    "activo" : false
+  }
+];
+
+const responseMensajeAltaAdmision = [
+  {
+    "nombre": "ENE-FEB 2022",
+    "activo": false,
+    "_id": "6611a8d0809e5a6d5aca82af",
+    "createdAt": "2024-04-06T19:56:00.138Z",
+    "updatedAt": "2024-04-06T19:56:00.138Z"
+  }
+];
+
+const cuerpoEditarAdmision = [
+  {
+    "nombre":"MAR-ABR 2022",
+    "activo" : false
+  }
+];
+
+const responseMensajeEditarAdmision = [
+  {
+    "_id": "65f20c82a49afef87d954b0b",
+    "nombre": "MAR-ABR 2022",
+    "activo": false,
+    "createdAt": "2024-03-13T20:28:50.747Z",
+    "updatedAt": "2024-04-06T20:13:10.515Z"
+  }
+];
+
+
+const responseMensajeEliminarAdmision = [
+  {
+    "message": "Admision borrada exitosamente"
+  }
+];
+
+const cuerpoCrearOferta = [
+  {
+    "nombre": "Ingeniería en Gestión y Desarrollo de Software",
+    "activo": true
+  }
+];
+
+const responseMensajeAltaOferta = [
+  {
+    "nombre": "Ingeniería en Gestión y Desarrollo de Software",
+    "activo": true,
+    "_id": "6611af5e113a232072468fc1",
+    "createdAt": "2024-04-06T20:23:58.536Z",
+    "updatedAt": "2024-04-06T20:23:58.536Z"
+  }
+];
+
+const cuerpoEditarOferta= [
+  {
+    "nombre":"Ingenería en Automatización",
+    "activo" : true
+  }
+];
+
+const responseMensajeEditarOferta = [
+  {
+    "_id": "65f21676e1fe9db7504a6b65",
+    "nombre": "Ingenería en Automatización",
+    "activo": true,
+    "createdAt": "2024-03-13T21:11:18.240Z",
+    "updatedAt": "2024-04-06T20:33:54.751Z"
+  }
+];
+
+
+const mensajeOfertaEliminada = [
+  {
+    "message": "Oferta educativa eliminada exitosamente"
+  }
+];
+
 
 export default function ResetPassword() {
   return (
@@ -120,10 +202,10 @@ export default function ResetPassword() {
             <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
               <p className="text-center">
                 <a
-                  href={endpointProfesoresGet}
+                  href={endpointGetProfesores}
                   className="text-blue-500 font-bold no-underline"
                 >
-                  {endpointProfesoresGet}
+                  {endpointGetProfesores}
                 </a>
               </p>
             </div>
@@ -170,10 +252,10 @@ export default function ResetPassword() {
             <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
               <p className="text-center">
                 <a
-                  href={endpointProfesoresGetById}
+                  href={endpointProfesorObtener}
                   className="text-blue-500 font-bold no-underline"
                 >
-                  {endpointProfesoresGetById}
+                  {endpointProfesorObtener}
                 </a>
               </p>
             </div>
@@ -207,7 +289,7 @@ export default function ResetPassword() {
               Eliminar a un profesor
             </h2>
             <p className="text-center text-gray-600 mb-4">
-              Recuerda que para modificar es con{" "}
+              Recuerda que para eliminar es con{" "}
               <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
                 DELETE
               </div>{" "}
@@ -215,10 +297,10 @@ export default function ResetPassword() {
             <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
               <p className="text-center">
                 <a
-                  href={endpointProfesoresGetById}
+                  href={endpointProfesorObtener}
                   className="text-blue-500 font-bold no-underline"
                 >
-                  {endpointProfesoresGetById}
+                  {endpointProfesorObtener}
                 </a>
               </p>
             </div>
@@ -228,7 +310,7 @@ export default function ResetPassword() {
             <div>
               <div className="bg-gray-600 p-4 rounded-md shadow-md">
                 <pre className="overflow-x-auto">
-                  {JSON.stringify(headersEliminacionProfe, null, 2)}
+                  {JSON.stringify(headersEliminacion, null, 2)}
                 </pre>
               </div>
             </div>
@@ -246,6 +328,279 @@ export default function ResetPassword() {
               </div>
             </div>
           </div>
+
+          {/* Bloque Admision - Crear */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Creación de una nueva Admisión
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Con el siguiente endpoint puedes dar de alta alta una admision
+            </p>  
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointAdmisionCrear}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointAdmisionCrear}
+                </a>
+              </p>
+            </div>
+            <p className="text-center text-gray-600 mb-4">
+              Recuerda que para dar de alta es con{" "}
+              <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-yellow-600 bg-yellow-200 rounded-full mb-4">
+                POST
+              </div>{" "}
+              Y colocar lo siguiente en el encabezado y cuerpo para dar de alta:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(cuerpoCrearAdmision, null, 2)}
+                </pre>
+              </div>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
+              Request code: 201
+            </div>{" "}
+            <p className="text-center text-gray-600 mb-4">
+              Mensaje al ser creada:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(responseMensajeAltaAdmision, null, 2)}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          {/* Bloque Admision - Editar */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Modificar una Admisión
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Recuerda que para modificar es con{" "}
+              <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-purple-600 bg-purple-200 rounded-full mb-4">
+                PUT
+              </div>{" "}
+            </p>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointObtenerAdmisionPorId}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointObtenerAdmisionPorId}
+                </a>
+              </p>
+            </div>
+            <p className="text-center text-gray-600 mb-4">
+              Lo siguiente debe enviarse en el encabezado y cuerpo para su
+              edición:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(cuerpoEditarAdmision, null, 2)}
+                </pre>
+              </div>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
+              Request code: 200
+            </div>{" "}
+            <p className="text-center text-gray-600 mb-4">Respuesta:</p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(responseMensajeEditarAdmision, null, 2)}
+                </pre>
+              </div>
+            </div>
+          </div>
+          {/* Bloque Admision - Eliminar */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Eliminar una Admisión
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Recuerda que para eliminar es con{" "}
+              <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+                DELETE
+              </div>{" "}
+            </p>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointObtenerAdmisionPorId}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointObtenerAdmisionPorId}
+                </a>
+              </p>
+            </div>
+            <p className="text-center text-gray-600 mb-4">
+              Lo siguiente debe enviarse en el encabezado para su eliminacion:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(headersEliminacion, null, 2)}
+                </pre>
+              </div>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
+              Request code: 200
+            </div>{" "}
+            <p className="text-center text-gray-600 mb-4">
+              Mensaje que aparecera al ser eliminada:{" "}
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(responseMensajeEliminarAdmision, null, 2)}
+                </pre>
+              </div>
+            </div>
+          </div>
+          {/* Bloque Oferta - Crear */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Creación de una nueva Oferta Educativa
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Con el siguiente endpoint puedes dar de alta alta una oferta educativa
+            </p>  
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointCrearOferta}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointCrearOferta}
+                </a>
+              </p>
+            </div>
+            <p className="text-center text-gray-600 mb-4">
+              Recuerda que para dar de alta es con{" "}
+              <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-yellow-600 bg-yellow-200 rounded-full mb-4">
+                POST
+              </div>{" "}
+              Y colocar lo siguiente en el encabezado y cuerpo para dar de alta:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(cuerpoCrearOferta, null, 2)}
+                </pre>
+              </div>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
+              Request code: 201
+            </div>{" "}
+            <p className="text-center text-gray-600 mb-4">
+              Mensaje al ser creada:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(responseMensajeAltaOferta, null, 2)}
+                </pre>
+              </div>
+            </div>
+          </div>
+          {/* Bloque Oferta - Editar */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Modificar una Oferta Educativa
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Recuerda que para modificar es con{" "}
+              <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-purple-600 bg-purple-200 rounded-full mb-4">
+                PUT
+              </div>{" "}
+            </p>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointOfertaPorId}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointOfertaPorId}
+                </a>
+              </p>
+            </div>
+            <p className="text-center text-gray-600 mb-4">
+              Lo siguiente debe enviarse en el encabezado y cuerpo para su
+              edición:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(cuerpoEditarOferta, null, 2)}
+                </pre>
+              </div>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
+              Request code: 200
+            </div>{" "}
+            <p className="text-center text-gray-600 mb-4">Respuesta:</p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(responseMensajeEditarOferta, null, 2)}
+                </pre>
+              </div>
+            </div>
+          </div>
+          {/* Bloque Oferta - Eliminar */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Eliminar una Oferta Educativa
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              Recuerda que para eliminar es con{" "}
+              <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+                DELETE
+              </div>{" "}
+            </p>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <a
+                  href={endpointOfertaPorId}
+                  className="text-blue-500 font-bold no-underline"
+                >
+                  {endpointOfertaPorId}
+                </a>
+              </p>
+            </div>
+            <p className="text-center text-gray-600 mb-4">
+              Lo siguiente debe enviarse en el encabezado para su eliminación:
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(headersEliminacion, null, 2)}
+                </pre>
+              </div>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
+              Request code: 200
+            </div>{" "}
+            <p className="text-center text-gray-600 mb-4">
+              Mensaje que aparecerá al ser eliminada:{" "}
+            </p>
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(mensajeOfertaEliminada, null, 2)}
+                </pre>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
