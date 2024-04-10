@@ -627,36 +627,6 @@ export default function SignIn() {
               </div>
             </div>
           </div>
-          {/* CREACION DE ADMISION */}
-          <div className="bg-blue p-8 rounded-lg shadow-md">
-            <h2 className="text-3xl font-bold text-center mb-4">
-              Creación de admision
-            </h2>
-            <p className="text-center text-gray-600 mb-4">
-              Con el siguiente endpoint puedes acceder a una admision en
-              especifico dado su ID
-            </p>
-            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
-              <p className="text-center">
-                <a
-                  href="https://lizard-project-server.vercel.app/api/admision/"
-                  className="text-blue-500 font-bold no-underline"
-                >
-                  Aqui va el URL del de admision para dar de alta
-                </a>
-              </p>
-            </div>
-            <div>
-              <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
-                Request code: 200
-              </div>{" "}
-              <div className="bg-gray-600 p-4 rounded-md shadow-md">
-                <pre className="overflow-x-auto">
-                  {JSON.stringify(responseDataAdmisionGetById, null, 2)}
-                </pre>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -49,7 +49,7 @@ import { authJwt } from "../middlewares/index.js";
 
 // Rutas para ofertas educativas
 router.get('/', ofertaCtrl.getOfertas);
-router.get('/:ofertaId',[authJwt.verifyToken,authJwt.isCustomer],  ofertaCtrl.getOfertaById);
+router.get('/:ofertaId',  ofertaCtrl.getOfertaById);
 router.post('/',[authJwt.verifyToken,authJwt.isAdmin], ofertaCtrl.createOferta);
 router.put('/:ofertaId',[authJwt.verifyToken,authJwt.isAdmin],  ofertaCtrl.updateOferta);
 router.delete('/:ofertaId', [authJwt.verifyToken,authJwt.isAdmin], ofertaCtrl.deleteOferta);

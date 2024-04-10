@@ -83,6 +83,12 @@ const response500AdmisionById = [
   },
 ];
 
+const response403Admin = [
+  {
+    message: "Role Admin required",
+  },
+];
+
 import Link from "next/link";
 
 export default function SignUp() {
@@ -109,6 +115,44 @@ export default function SignUp() {
                 errores que estarás encontrandote.
               </strong>
             </p>
+          </div>
+
+          {/* Bloque Errores Moderador y publico */}
+          <div className="bg-blue p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Cómo moderador y usuario público podrás encontrar el error{" "}
+              <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+                403
+              </div>{" "}
+              si solo deseas hacer lo siguiente:
+            </h2>
+            <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
+              <p className="text-center">
+                <ol className="list-decimal list-inside">
+                  <li className="text-left">
+                    Dar de alta en cualquiera de los 3 módulos
+                  </li>
+                  <li className="text-left">
+                    Hacer cambios/modificación en cualquiera de los 3 módulos
+                  </li>
+                  <li className="text-left">
+                    Eliminar en cualquiera de los 3 módulos
+                  </li>
+                  {/* Puedes agregar más elementos aquí */}
+                </ol>
+              </p>
+            </div>
+            <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-red-600 bg-red-200 rounded-full mb-4">
+              Response code: 403
+            </div>{" "}
+            {/* Aquí va el mensaje: dee Role admin required */}
+            <div>
+              <div className="bg-gray-600 p-4 rounded-md shadow-md">
+                <pre className="overflow-x-auto">
+                  {JSON.stringify(response403Admin, null, 2)}
+                </pre>
+              </div>
+            </div>
           </div>
 
           {/* Bloque Errores Profesores GET */}
@@ -169,8 +213,8 @@ export default function SignUp() {
                 Request code: 403
               </div>{" "}
               <p className="text-center text-gray-600 mb-4">
-                Al querer obtener todos los profesores y no cuentas con un token
-                generado, aparece el siguiente error:
+                Si el ID no contiene los 24 caracteres solicitados, se nos
+                generará el siguiente error
               </p>
               <div>
                 <div className="bg-gray-600 p-4 rounded-md shadow-md">

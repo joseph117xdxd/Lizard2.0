@@ -89,86 +89,83 @@ const responseMensajeEliminacionProfe = [
 
 const cuerpoCrearAdmision = [
   {
-    "nombre":"ENE-FEB 2022",
-    "activo" : false
-  }
+    nombre: "ENE-FEB 2022",
+    activo: false,
+  },
 ];
 
 const responseMensajeAltaAdmision = [
   {
-    "nombre": "ENE-FEB 2022",
-    "activo": false,
-    "_id": "6611a8d0809e5a6d5aca82af",
-    "createdAt": "2024-04-06T19:56:00.138Z",
-    "updatedAt": "2024-04-06T19:56:00.138Z"
-  }
+    nombre: "ENE-FEB 2022",
+    activo: false,
+    _id: "6611a8d0809e5a6d5aca82af",
+    createdAt: "2024-04-06T19:56:00.138Z",
+    updatedAt: "2024-04-06T19:56:00.138Z",
+  },
 ];
 
 const cuerpoEditarAdmision = [
   {
-    "nombre":"MAR-ABR 2022",
-    "activo" : false
-  }
+    nombre: "MAR-ABR 2022",
+    activo: false,
+  },
 ];
 
 const responseMensajeEditarAdmision = [
   {
-    "_id": "65f20c82a49afef87d954b0b",
-    "nombre": "MAR-ABR 2022",
-    "activo": false,
-    "createdAt": "2024-03-13T20:28:50.747Z",
-    "updatedAt": "2024-04-06T20:13:10.515Z"
-  }
+    _id: "65f20c82a49afef87d954b0b",
+    nombre: "MAR-ABR 2022",
+    activo: false,
+    createdAt: "2024-03-13T20:28:50.747Z",
+    updatedAt: "2024-04-06T20:13:10.515Z",
+  },
 ];
-
 
 const responseMensajeEliminarAdmision = [
   {
-    "message": "Admision borrada exitosamente"
-  }
+    message: "Admision borrada exitosamente",
+  },
 ];
 
 const cuerpoCrearOferta = [
   {
-    "nombre": "Ingeniería en Gestión y Desarrollo de Software",
-    "activo": true
-  }
+    nombre: "Ingeniería en Gestión y Desarrollo de Software",
+    activo: true,
+  },
 ];
 
 const responseMensajeAltaOferta = [
   {
-    "nombre": "Ingeniería en Gestión y Desarrollo de Software",
-    "activo": true,
-    "_id": "6611af5e113a232072468fc1",
-    "createdAt": "2024-04-06T20:23:58.536Z",
-    "updatedAt": "2024-04-06T20:23:58.536Z"
-  }
+    nombre: "Ingeniería en Gestión y Desarrollo de Software",
+    activo: true,
+    _id: "6611af5e113a232072468fc1",
+    createdAt: "2024-04-06T20:23:58.536Z",
+    updatedAt: "2024-04-06T20:23:58.536Z",
+  },
 ];
 
-const cuerpoEditarOferta= [
+const cuerpoEditarOferta = [
   {
-    "nombre":"Ingenería en Automatización",
-    "activo" : true
-  }
+    nombre: "Ingenería en Automatización",
+    activo: true,
+  },
 ];
 
 const responseMensajeEditarOferta = [
   {
-    "_id": "65f21676e1fe9db7504a6b65",
-    "nombre": "Ingenería en Automatización",
-    "activo": true,
-    "createdAt": "2024-03-13T21:11:18.240Z",
-    "updatedAt": "2024-04-06T20:33:54.751Z"
-  }
+    _id: "65f21676e1fe9db7504a6b65",
+    nombre: "Ingenería en Automatización",
+    activo: true,
+    createdAt: "2024-03-13T21:11:18.240Z",
+    updatedAt: "2024-04-06T20:33:54.751Z",
+  },
 ];
-
 
 const mensajeOfertaEliminada = [
   {
-    "message": "Oferta educativa eliminada exitosamente"
-  }
+    message: "Oferta educativa eliminada exitosamente",
+  },
 ];
-
 
 export default function ResetPassword() {
   return (
@@ -189,6 +186,57 @@ export default function ResetPassword() {
               la baja de acuerdo al modulo, así como la estructura de datos
               utilizada para cada uno.
             </p>
+          </div>
+
+          {/* Tabla de roles de Usuario */}
+          <div className="max-w-3xl mx-auto text-center pb-5 md:pb-15">
+            <h3 className="h3">Esquema de roles de Usuario</h3>
+            <p
+              className="text-xl text-gray-400 mb-8"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              Cabe mencionar que la API cuenta con 2 tipos de usuario, el
+              usuario administradir y el usuario moderador, cada uno tiene sus
+              acciones correspondientes en la API para poder hacer uso de los
+              CRUDS
+            </p>
+          </div>
+          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                  <th scope="col" className="px-6 py-3">
+                    Rol
+                  </th>
+
+                  <th scope="col" className="px-6 py-3">
+                    ¿Que hace?
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Administrador
+                  </th>
+                  <td className="px-6 py-4">Puede crear, modificar y eliminar en cada uno de los módulos correspondientes</td>
+                </tr>
+
+                <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Usuario Publico
+                  </th>
+                  <td className="px-6 py-4">Puede solo visualizar la lista de todos los módulos y buscar por ID</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           {/* Bloque Profesores - Crear */}
@@ -261,7 +309,7 @@ export default function ResetPassword() {
             </div>
             <p className="text-center text-gray-600 mb-4">
               Lo siguiente debe enviarse en el encabezado y cuerpo para su
-              edición:
+              edición (puedes modificar un solo atributo pero deberás enviar todo el objeto):
             </p>
             <div>
               <div className="bg-gray-600 p-4 rounded-md shadow-md">
@@ -336,7 +384,7 @@ export default function ResetPassword() {
             </h2>
             <p className="text-center text-gray-600 mb-4">
               Con el siguiente endpoint puedes dar de alta alta una admision
-            </p>  
+            </p>
             <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
               <p className="text-center">
                 <a
@@ -399,7 +447,7 @@ export default function ResetPassword() {
             </div>
             <p className="text-center text-gray-600 mb-4">
               Lo siguiente debe enviarse en el encabezado y cuerpo para su
-              edición:
+              edición (puedes modificar un solo atributo pero deberás enviar todo el objeto):
             </p>
             <div>
               <div className="bg-gray-600 p-4 rounded-md shadow-md">
@@ -471,8 +519,9 @@ export default function ResetPassword() {
               Creación de una nueva Oferta Educativa
             </h2>
             <p className="text-center text-gray-600 mb-4">
-              Con el siguiente endpoint puedes dar de alta alta una oferta educativa
-            </p>  
+              Con el siguiente endpoint puedes dar de alta alta una oferta
+              educativa
+            </p>
             <div className="bg-gray-600 p-4 rounded-md shadow-md mb-4">
               <p className="text-center">
                 <a
@@ -534,7 +583,7 @@ export default function ResetPassword() {
             </div>
             <p className="text-center text-gray-600 mb-4">
               Lo siguiente debe enviarse en el encabezado y cuerpo para su
-              edición:
+              edición (puedes modificar un solo atributo pero deberás enviar todo el objeto):
             </p>
             <div>
               <div className="bg-gray-600 p-4 rounded-md shadow-md">
@@ -600,7 +649,6 @@ export default function ResetPassword() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
