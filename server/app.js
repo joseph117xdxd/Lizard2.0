@@ -17,7 +17,7 @@ app.get('/', (req, res) =>{
 app.use(cors(
   {
     origin: "*",
-    methods: ["POST", "PUT", "DELETE", "GET"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true
   }
 ))
