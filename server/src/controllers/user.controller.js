@@ -36,18 +36,22 @@ export const getUserById = async (req, res) => {
 // Crear un nuevo user
 export const createUser = async (req, res) => {
     try {
-        const { username, email, password } = req.body;
+        const { username, email, imgurl, password } = req.body;
         const newUser = new User({
             username,
             email,
             password: await User.encryptPassword(password)  // Corrected to use User
         });
 
-        if(req.body.roles){
-            const foundRoles = await Role.find({ name: {$in: req.body.roles} });
+        if (imgurl) {
+            newUser.imgurl = imgurl;
+        }
+
+        if (req.body.roles) {
+            const foundRoles = await Role.find({ name: { $in: req.body.roles } });
             newUser.roles = foundRoles.map(role => role.id);
         } else {
-            const role = await Role.findOne({ name: "customer"});
+            const role = await Role.findOne({ name: "customer" });
             newUser.roles = [role.id];
         }
 
@@ -62,6 +66,7 @@ export const createUser = async (req, res) => {
         res.status(500).json({ message: 'Error en el servidor' });
     }
 }
+
 
 /*export const updateUser = async (req, res) => {
     try {
@@ -80,7 +85,7 @@ export const createUser = async (req, res) => {
 // Actualizar un user por su ID
 export const updateUser = async (req, res) => {
     try {
-        const { username, email, password, roles } = req.body;
+        const { username, email, password, imgurl, roles } = req.body;
 
         // Buscar el usuario por ID
         let userToUpdate = await User.findById(req.params.userId);
@@ -93,6 +98,7 @@ export const updateUser = async (req, res) => {
         // Actualizar campos del usuario si se proporcionan
         if (username) userToUpdate.username = username;
         if (email) userToUpdate.email = email;
+        if (imgurl) userToUpdate.imgurl = imgurl;
         if (password) userToUpdate.password = await User.encryptPassword(password);
 
         // Actualizar roles si se proporcionan
@@ -110,6 +116,7 @@ export const updateUser = async (req, res) => {
         res.status(500).json({ message: 'Error en el servidor' });
     }
 }
+
 
 
 
