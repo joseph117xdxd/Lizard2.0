@@ -40,6 +40,7 @@ export const createUser = async (req, res) => {
         const newUser = new User({
             username,
             email,
+            imgurl,
             password: await User.encryptPassword(password)  // Corrected to use User
         });
 
@@ -98,7 +99,11 @@ export const updateUser = async (req, res) => {
         // Actualizar campos del usuario si se proporcionan
         if (username) userToUpdate.username = username;
         if (email) userToUpdate.email = email;
+<<<<<<< HEAD
         if (imgurl) userToUpdate.imgurl = imgurl;
+=======
+        if(imgurl) userToUpdate.imgurl = imgurl;
+>>>>>>> 15845226e8a4722accd44ba2a3972aad27c7533c
         if (password) userToUpdate.password = await User.encryptPassword(password);
 
         // Actualizar roles si se proporcionan
