@@ -15,6 +15,17 @@ export const getUsers = async (req, res) => {
     }
 }
 
+// Obtener los roles 
+export const getRol = async (req, res) => {
+    try {
+        const rol = await Role.find();
+        res.json(rol);
+    } catch (error) {
+        console.error('Error al obtener roles:', error);
+        res.status(500).json({ message: 'Error en el servidor' });
+    }
+}
+
 // Obtener un user por su ID
 export const getUserById = async (req, res) => {
     try {
