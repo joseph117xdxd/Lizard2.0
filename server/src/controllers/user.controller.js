@@ -7,13 +7,14 @@ import * as messages from "../../Art/Messages.js";
 // Obtener todos los users
 export const getUsers = async (req, res) => {
     try {
-        const users = await User.find();
+        const users = await User.find().populate('roles', 'name');
         res.json(users);
     } catch (error) {
         console.error('Error al obtener users:', error);
         res.status(500).json({ message: 'Error en el servidor' });
     }
-}
+};
+
 
 // Obtener los roles 
 export const getRol = async (req, res) => {
